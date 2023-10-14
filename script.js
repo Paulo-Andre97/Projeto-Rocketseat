@@ -1,14 +1,16 @@
 function toggleMode() {
-  const html = document.documentElement;
-  html.classList.toggle("light");
+  const html = document.documentElement
+  html.classList.toggle("light")
 
-  const profileImage = document.querySelector("#profile img");
+  // pegar a tag img
+  const img = document.querySelector("#profile img")
 
-  // Use a ternary operator instead of the if statement.
-  profileImage.setAttribute("src", html.classList.contains("light")  ,"./assets/avatar-light-.png" ,"./assets/avatar.png");
-
-  // Adicione um intervalo de tempo para verificar se a imagem está sendo trocada corretamente.
-  setTimeout(() => {
-    console.log(profileImage);
-  }, 1000);
+  // substituir a imagem
+  if (html.classList.contains("light")) {
+    // se tiver light mode, adicionar a imagem light
+    img.setAttribute("src", "./assets/avatar-light.png")
+  } else {
+    // set tiver sem light mode, manter a imagem normal
+    img.setAttribute("src", "./assets/avatar.png")
+  }
 }
